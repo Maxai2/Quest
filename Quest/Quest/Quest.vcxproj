@@ -144,7 +144,6 @@
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trap.cpp" />
-    <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Characters.h" />
@@ -159,7 +158,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="Trap.h" />
-    <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
