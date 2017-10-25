@@ -1,15 +1,11 @@
 #pragma once
+
+#include "enum.h"
+//---------------------------------------------------------------------------------------
 class IMovable
 {
+	Direction direction;
 public:
-	IMovable();
-	~IMovable();
+	virtual void move(Direction dir) = 0;
 };
-
-//
-//class IMovable
-//{
-//	Direction direction;
-//public:
-//	virtual void move(Direction dir) = 0;
-//};
+//---------------------------------------------------------------------------------------

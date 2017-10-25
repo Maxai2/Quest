@@ -16,7 +16,10 @@ public:
 		state = State::Idle;
 	}
 
-	//virtual void attack(Character &target) override;
+	virtual void attack(Character &target) override
+	{
+
+	}
 	//virtual void shoot(Character &target) override;
 	//virtual void move(Direction dir) override;
 };

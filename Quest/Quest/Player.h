@@ -1,10 +1,12 @@
 #pragma once
 
 #include <string>
+#include <conio.h>
 
 using namespace std;
 
 #include "Characters.h"
+#include "Map.h"
 //---------------------------------------------------------------------------------------
 class Player : public Character
 {
@@ -25,9 +27,29 @@ public:
 		level = 0;
 	}
 
-	Position getPos()
+	Position getPos() { return position; }
+
+	virtual void move(Direction dir)
 	{
-		return position;
+		switch (dir)
+		{
+		case Up:
+			if (position.y > 0 && Map::get().getCell(position.x, position.y - 1) != MapCell::Empty) 
+				position.y--;
+			break;
+		case Down:
+			if (position.y < Map::get().height && Map::get().getCell(position.x, position.y + 1) != MapCell::Empty)
+				position.y++;
+			break;
+		case Left:
+			if (position.x > 0 && Map::get().getCell(position.x - 1, position.y) != MapCell::Empty) 
+				position.x--;
+			break;
+		case Right:
+			if (position.x < Map::get().width && Map::get().getCell(position.x + 1, position.y) != MapCell::Empty) 
+				position.x++;
+		}
 	}
+
 };
 //---------------------------------------------------------------------------------------

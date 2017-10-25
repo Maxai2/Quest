@@ -1,14 +1,10 @@
 #pragma once
+
+#include "Characters.h"
+//---------------------------------------------------------------------------------------
 class IInteractive
 {
 public:
-	IInteractive();
-	~IInteractive();
+	virtual void interaction(Character &target) = 0; //typeid Player
 };
-
-//
-//class IInteractive
-//{
-//public:
-//	virtual void interaction(Character &target) = 0; //typeid Player
-//};
+//---------------------------------------------------------------------------------------
