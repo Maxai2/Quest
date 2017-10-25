@@ -1,15 +1,9 @@
 #pragma once
+//---------------------------------------------------------------------------------------
 class Enemy
 {
+	static int count;
 public:
-	Enemy();
-	~Enemy();
+	virtual void scanMap() = 0;
 };
-
-//
-//class Enemy : public Character
-//{
-//	static int count;
-//public:
-//	virtual void scanMap() = 0;
-//};
+//---------------------------------------------------------------------------------------
