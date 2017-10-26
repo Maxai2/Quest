@@ -1,7 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <conio.h>
+#include <windows.h>
 
+#include "Game.h"
 #include "Map.h"
 #include "Player.h"
 
@@ -15,26 +17,34 @@ using namespace std;
 //*/
 //
 
+HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+
+void noCursor(bool visible)
+{
+	CONSOLE_CURSOR_INFO     cursorInfo;
+
+	GetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+	cursorInfo.bVisible = visible; // set the cursor visibility
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+}
 //---------------------------------------------------------------------------------------
 void main()
 {
-	//Game initialization
-
-	//Game loop
-
 	int key = 0;
 
 	Map::get();
 	Player pl;
+	noCursor(false);
 	while (true)
 	{
+		SetConsoleCursorPosition(handle, { 0,0 });
 		for (int i = 0; i < Map::get().height; i++)
 		{
 			for (int j = 0; j < Map::get().width; j++)
 			{
 				if (pl.getPos().x == j && pl.getPos().y == i) cout << "@";
 				else
-				if (Map::get().getCell(i, j) == MapCell::Empty) cout << " ";
+				if (Map::get().getCell(j, i) == MapCell::Empty) cout << " ";
 				else
 					cout << "*";
 			}
@@ -47,15 +57,8 @@ void main()
 		
 		pl.move(Direction(key));
 		
-		system("cls");
-		//Input handling
-
-		//Game logic
-
-		//Drawing
+//		system("cls");
 	}
-	system("pause");
-
 }
 //---------------------------------------------------------------------------------------
 //
