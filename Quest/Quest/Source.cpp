@@ -4,19 +4,9 @@
 #include <windows.h>
 
 #include "Game.h"
-#include "Map.h"
-#include "Player.h"
 
 using namespace std;
 //---------------------------------------------------------------------------------------
-//
-///*
-//Files
-//const, final, override
-//smart pointers
-//*/
-//
-
 HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 
 void noCursor(bool visible)
@@ -32,30 +22,17 @@ void main()
 {
 	int key = 0;
 
-	Map::get();
-	Player pl;
+	Game::get();
 	noCursor(false);
 	while (true)
 	{
 		SetConsoleCursorPosition(handle, { 0,0 });
-		for (int i = 0; i < Map::get().height; i++)
-		{
-			for (int j = 0; j < Map::get().width; j++)
-			{
-				if (pl.getPos().x == j && pl.getPos().y == i) cout << "@";
-				else
-				if (Map::get().getCell(j, i) == MapCell::Empty) cout << " ";
-				else
-					cout << "*";
-			}
-			cout << endl;
-		}
-						
-		key = _getch();
-		if (key == 0 || key == 224)
-			key = _getch();
 		
-		pl.move(Direction(key));
+		Game::get().Draw();
+		key = _getch();
+
+		
+		Game::get().getPlayer()->move(Direction(key));
 		
 //		system("cls");
 	}
@@ -84,4 +61,4 @@ void main()
 //
 //	return 0;
 //}
-
+//---------------------------------------------------------------------------------------

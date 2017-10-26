@@ -20,7 +20,7 @@ protected:
 public:
 	Player() : Character()
 	{
-		position.x = 15;
+		position.x = 28;
 		position.y = 15;		
 		name = "Maxai";
 		exp = 0;
@@ -34,19 +34,19 @@ public:
 		switch (dir)
 		{
 		case Up:
-			if (position.y > 0 && Map::get().getCell(position.x, position.y - 1) == MapCell::Empty)
+			if (position.y > 0 && Map::get().getCell(position.y - 1, position.x) == MapCell::Empty)
 				position.y--;
 			break;
 		case Down:
-			if (position.y < Map::get().height && Map::get().getCell(position.x, position.y + 1) == MapCell::Empty)
+			if (position.y < Map::get().height && Map::get().getCell(position.y + 1, position.x) == MapCell::Empty)
 				position.y++;
 			break;
 		case Left:
-			if (position.x > 0 && Map::get().getCell(position.x - 1, position.y) == MapCell::Empty) 
+			if (position.x > 0 && Map::get().getCell(position.y, position.x - 1) == MapCell::Empty)
 				position.x--;
 			break;
 		case Right:
-			if (position.x < Map::get().width && Map::get().getCell(position.x + 1, position.y) == MapCell::Empty) 
+			if (position.x < Map::get().width && Map::get().getCell(position.y, position.x + 1) == MapCell::Empty)
 				position.x++;
 		}
 	}
