@@ -31,10 +31,7 @@ void main()
 		Game::get().Draw();
 		key = _getch();
 
-		
 		Game::get().getPlayer()->move(Direction(key));
-		
-//		system("cls");
 	}
 }
 //---------------------------------------------------------------------------------------
