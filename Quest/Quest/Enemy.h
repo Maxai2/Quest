@@ -1,6 +1,8 @@
 #pragma once
+
+#include "Characters.h"
 //---------------------------------------------------------------------------------------
-class Enemy
+class Enemy : public Character
 {
 	static int count;
 public:

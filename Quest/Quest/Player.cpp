@@ -1,5 +1,5 @@
 #include "Player.h"
-
+//---------------------------------------------------------------------------------------
 Player::Player() : Character()
 {
 	position.x = 28;
@@ -8,9 +8,9 @@ Player::Player() : Character()
 	exp = 0;
 	level = 0;
 }
-
-inline Position Player::getPos() { return position; }
-
+//---------------------------------------------------------------------------------------
+Position Player::getPos() { return position; }
+//---------------------------------------------------------------------------------------
 void Player::move(Direction dir)
 {
 	switch (dir)
@@ -32,3 +32,4 @@ void Player::move(Direction dir)
 			position.x++;
 	}
 }
+//---------------------------------------------------------------------------------------

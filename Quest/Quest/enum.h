@@ -1,8 +1,15 @@
 #pragma once
+#include <time.h>
 
 using namespace std;
 
 //---------------------------------------------------------------------------------------
+int Mrand(int min, int max)
+{
+	srand(time(0));
+	return rand() % (max - min + 1) + min;
+}
+
 enum Direction 
 { 
 	Up = 'w',

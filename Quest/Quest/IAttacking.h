@@ -11,3 +11,4 @@ public:
 	virtual void attack(Character &target) = 0;
 	//virtual void shoot(Character &target) = 0;
 };
+//---------------------------------------------------------------------------------------

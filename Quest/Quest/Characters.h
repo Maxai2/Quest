@@ -10,16 +10,9 @@ protected:
 	int hp;
 	State state;
 public:
-	Character()
-	{
-		hp = 100;
-		state = State::Idle;
-	}
+	Character();
 
-	virtual void attack(Character &target) override
-	{
-
-	}
+	virtual void attack(Character &target) override;
 	//virtual void shoot(Character &target) override;
 	//virtual void move(Direction dir) override;
 };
