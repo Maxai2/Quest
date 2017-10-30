@@ -2,13 +2,14 @@
 
 #include "Characters.h"
 #include "Map.h"
+#include "Enemy.h"
 #include "enum.h"
 
 //---------------------------------------------------------------------------------------
-class Skeleton : public Character
+class Skeleton : public Enemy
 {
 public:
-	Skeleton(int min, int max);
+	Skeleton(Damage damage, Position position, int hp, int cooldown);
 	virtual void scanMap();
 };
 //---------------------------------------------------------------------------------------

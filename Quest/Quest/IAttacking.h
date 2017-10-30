@@ -5,6 +5,7 @@ class Character;
 //---------------------------------------------------------------------------------------
 class IAttacking
 {
+protected:
 	Damage damage;
 	int cooldown;
 public:

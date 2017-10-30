@@ -1,15 +1,17 @@
 #pragma once
+
+#include <iostream>
 #include <time.h>
 
 using namespace std;
-
 //---------------------------------------------------------------------------------------
-int Mrand(int min, int max)
+int MRand(int max, int min)
 {
-	srand(time(0));
-	return rand() % (max - min + 1) + min;
+	srand(time(NULL));
+	int rn = rand() % (max - min + 1) + min;
+	return rn;
 }
-
+//---------------------------------------------------------------------------------------
 enum Direction 
 { 
 	Up = 'w',
@@ -23,5 +25,5 @@ enum MapCell { Empty, Wall };
 struct Position { int x, y; };
 struct Damage { int min, max; };
 
-enum MapCoord { /*height = 40, width = 40*/ height = 30, width = 90 };
+enum MapCoord { height = 30, width = 90 };
 //---------------------------------------------------------------------------------------

@@ -1,12 +1,12 @@
 #include "Skeleton.h"
 //---------------------------------------------------------------------------------------
-Skeleton::Skeleton(int min, int max) : Character()
+Skeleton::Skeleton(Damage damage, Position position, int hp, int cooldown) : Enemy(damage, position, hp, cooldown)
 {
-	while(Map::get().getCell(Mrand(min, max), Mrand(min, max)) != MapCell::Wall)
-	{
-		position.x = Mrand(min, max);
-		position.y = Mrand(min, max);
-	}
+	//while(Map::get().getCell(Mrand(min, max), Mrand(min, max)) != MapCell::Wall)
+	//{
+	//	position.x = Mrand(min, max);
+	//	position.y = Mrand(min, max);
+	//}
 }
 //---------------------------------------------------------------------------------------
 void Skeleton::scanMap()

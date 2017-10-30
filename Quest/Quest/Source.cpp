@@ -5,6 +5,16 @@
 
 using namespace std;
 //---------------------------------------------------------------------------------------
+HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+
+void noCursor(bool visible)
+{
+	CONSOLE_CURSOR_INFO     cursorInfo;
+
+	GetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+	cursorInfo.bVisible = visible; // set the cursor visibility
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+}//---------------------------------------------------------------------------------------s
 void main()
 {
 	int key = 0;

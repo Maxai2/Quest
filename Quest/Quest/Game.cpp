@@ -2,9 +2,36 @@
 //---------------------------------------------------------------------------------------
 Game::Game()
 {
+	Enemy* enemInd;
 	Map::get();
 	player = new Player;
-	enemies.push_back(new Enemy);
+	for (int i = 0; i < 7; i++)
+	{
+		Damage dam;
+		dam.max = 20;
+		dam.min = 5;
+		Position pos;
+		pos = placeChecker();
+		int hp = Character::getHp();
+		
+		Enemy enem(dam, pos, hp, cooldown);
+		
+	}
+	//enemies.push_back(new Enemy);
+}
+//---------------------------------------------------------------------------------------
+Position Game::placeChecker()
+{
+	bool check = false;
+	Position pos;
+	pos.x = MRand(1, 90);
+	pos.y = MRand(1, 30);
+
+	if (true)
+	{
+		
+	}
+	return pos;
 }
 //---------------------------------------------------------------------------------------
 Game & Game::get()

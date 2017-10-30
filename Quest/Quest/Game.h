@@ -6,20 +6,9 @@
 #include "Map.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "enum.h"
 
 using namespace std;
-
-//---------------------------------------------------------------------------------------
-HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-
-void noCursor(bool visible)
-{
-	CONSOLE_CURSOR_INFO     cursorInfo;
-
-	GetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
-	cursorInfo.bVisible = visible; // set the cursor visibility
-	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
-}
 //---------------------------------------------------------------------------------------
 class Game
 {
@@ -28,6 +17,7 @@ class Game
 	vector<Enemy*> enemies;
 
 	Game();
+	Position placeChecker();
 public:
 	static Game& get();
 
