@@ -1,16 +1,12 @@
 #pragma once
 
-#include <iostream>
-#include <windows.h>
-
-#include "Map.h"
+#include "Functions.h"
+#include "Skeleton.h"
 #include "Player.h"
-#include "Enemy.h"
-#include "enum.h"
 
 using namespace std;
 //---------------------------------------------------------------------------------------
-class Game
+class Game : public Skeleton
 {
 	Player* player;
 	vector<GameObject*> staticObjects;

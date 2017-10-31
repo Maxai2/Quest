@@ -14,8 +14,8 @@ public:
 
 	virtual void attack(Character &target) override;
 	//virtual void shoot(Character &target) override;
-	//virtual void move(Direction dir) override;
+	virtual void move(Direction dir) override {};
 
-	static int getHp();
+	int getHp();
 };
 //---------------------------------------------------------------------------------------

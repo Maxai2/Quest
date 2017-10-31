@@ -1,26 +1,19 @@
 #include <SFML/Graphics.hpp>
 #include <conio.h>
 
+#include "enum.h"
 #include "Game.h"
+#include "Functions.h"
 
 using namespace std;
+
+extern HANDLE handle;
 //---------------------------------------------------------------------------------------
-HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-
-void noCursor(bool visible)
-{
-	CONSOLE_CURSOR_INFO     cursorInfo;
-
-	GetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
-	cursorInfo.bVisible = visible; // set the cursor visibility
-	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
-}//---------------------------------------------------------------------------------------s
 void main()
 {
 	int key = 0;
 
 	Game::get();
-	noCursor(false);
 	while (true)
 	{
 		SetConsoleCursorPosition(handle, { 0,0 });

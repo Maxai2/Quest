@@ -8,6 +8,10 @@ Enemy::Enemy(Damage damage, Position position, int hp, int cooldown) : Character
 	this->damage.min = damage.min;
 	this->hp = hp;
 	this->cooldown = cooldown;
-	
+}
+//---------------------------------------------------------------------------------------
+void Enemy::move(Direction dir)
+{
+
 }
 //---------------------------------------------------------------------------------------

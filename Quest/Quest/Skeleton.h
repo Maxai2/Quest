@@ -1,15 +1,18 @@
 #pragma once
 
-#include "Characters.h"
-#include "Map.h"
+#include <iostream>
+
 #include "Enemy.h"
-#include "enum.h"
+//#include "Functions.h"
+
+using namespace std;
 
 //---------------------------------------------------------------------------------------
 class Skeleton : public Enemy
 {
 public:
 	Skeleton(Damage damage, Position position, int hp, int cooldown);
-	virtual void scanMap();
+	virtual void scanMap(Direction dir);
+	virtual void move();
 };
 //---------------------------------------------------------------------------------------

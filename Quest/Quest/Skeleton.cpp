@@ -1,19 +1,25 @@
 #include "Skeleton.h"
 //---------------------------------------------------------------------------------------
-Skeleton::Skeleton(Damage damage, Position position, int hp, int cooldown) : Enemy(damage, position, hp, cooldown)
+Skeleton::Skeleton(Damage damage, Position position, int hp, int cooldown) : Enemy(damage, position, hp, cooldown){}
+//---------------------------------------------------------------------------------------
+void Skeleton::scanMap(Direction dir)
 {
-	//while(Map::get().getCell(Mrand(min, max), Mrand(min, max)) != MapCell::Wall)
-	//{
-	//	position.x = Mrand(min, max);
-	//	position.y = Mrand(min, max);
-	//}
+	switch (dir)
+	{
+	case Up:
+		break;
+	case Down:
+		break;
+	case Left:
+		break;
+	case Right:
+		break;
+	}
 }
 //---------------------------------------------------------------------------------------
-void Skeleton::scanMap()
+void Skeleton::move()
 {
-	for (int i = 0; i < 4; i++)
-	{
-
-	}
+	Direction dir;
+//	dir = MRand(0, 4);
 }
 //---------------------------------------------------------------------------------------
