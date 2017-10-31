@@ -12,10 +12,13 @@ protected:
 public:
 	Character();
 
-	virtual void attack(Character &target) override;
-	//virtual void shoot(Character &target) override;
-	virtual void move(Direction dir) override {};
-
 	int getHp();
+	void setHp(int num);
+	State getState();
+	void setState(State st);
 };
 //---------------------------------------------------------------------------------------
+
+	//virtual void attack(Character &target) override;
+	//virtual void shoot(Character &target) override;
+	//virtual void move(Direction dir) override {};

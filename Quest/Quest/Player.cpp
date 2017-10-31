@@ -11,6 +11,11 @@ Player::Player() : Character()
 //---------------------------------------------------------------------------------------
 Position Player::getPos() { return position; }
 //---------------------------------------------------------------------------------------
+void Player::drawPlayer()
+{
+	SetConsoleCursorPosition(handle, { (short)Game::get().getPlayer()->position.x, (short)Game::get().getPlayer()->position.y });
+}
+//---------------------------------------------------------------------------------------
 void Player::move(Direction dir)
 {
 	switch (dir)

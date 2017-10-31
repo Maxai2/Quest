@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 
-#include "enum.h"
+#include "Functions.h"
 #include "GameObject.h"
 
 using namespace std;

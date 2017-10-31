@@ -10,8 +10,3 @@ Enemy::Enemy(Damage damage, Position position, int hp, int cooldown) : Character
 	this->cooldown = cooldown;
 }
 //---------------------------------------------------------------------------------------
-void Enemy::move(Direction dir)
-{
-
-}
-//---------------------------------------------------------------------------------------

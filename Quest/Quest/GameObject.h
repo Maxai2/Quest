@@ -1,6 +1,6 @@
 #pragma once
 
-#include "enum.h"
+#include "Functions.h"
 //---------------------------------------------------------------------------------------
 class GameObject
 {

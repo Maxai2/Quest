@@ -3,11 +3,8 @@
 
 #include "enum.h"
 #include "Game.h"
-#include "Functions.h"
 
-using namespace std;
 
-extern HANDLE handle;
 //---------------------------------------------------------------------------------------
 void main()
 {
@@ -15,9 +12,7 @@ void main()
 
 	Game::get();
 	while (true)
-	{
-		SetConsoleCursorPosition(handle, { 0,0 });
-		
+	{		
 		Game::get().Draw();
 		key = _getch();
 
@@ -25,7 +20,6 @@ void main()
 	}
 }
 //---------------------------------------------------------------------------------------
-//
 //int main()
 //{
 //	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");

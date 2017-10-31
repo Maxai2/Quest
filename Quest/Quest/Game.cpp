@@ -44,6 +44,8 @@ Game & Game::get()
 //---------------------------------------------------------------------------------------
 void Game::Draw()
 {
+	SetConsoleCursorPosition(handle, { 0,0 });
+
 	for (int i = 0; i < Map::get().height; i++)
 	{
 		for (int j = 0; j < Map::get().width; j++)

@@ -6,16 +6,11 @@ Character::Character()
 	state = State::Idle;
 }
 //---------------------------------------------------------------------------------------
-void Character::attack(Character & target)
-{
-	Position pos;
-	pos = target.position;
-
-	if (this->position.x == pos.x)
-	{
-
-	}
-}
+int Character::getHp()	{ return this->hp; }
 //---------------------------------------------------------------------------------------
-int Character::getHp()	{ return this->hp; } 
+void Character::setHp(int num) { this->hp = num; }
+//---------------------------------------------------------------------------------------
+State Character::getState() { return this->state; }
+//---------------------------------------------------------------------------------------
+void Character::setState(State st) { this->state = st; }
 //---------------------------------------------------------------------------------------
