@@ -13,11 +13,14 @@ Position Player::getPos() { return position; }
 //---------------------------------------------------------------------------------------
 void Player::drawPlayer()
 {
-	SetConsoleCursorPosition(handle, { (short)Game::get().getPlayer()->position.x, (short)Game::get().getPlayer()->position.y });
+	SetCoord(Game::get().getPlayer()->position.x, Game::get().getPlayer()->position.y);
+	cout << '@';
 }
 //---------------------------------------------------------------------------------------
 void Player::move(Direction dir)
 {
+	SetCoord(Game::get().getPlayer()->position.x, Game::get().getPlayer()->position.y);
+	cout << ' ';
 	switch (dir)
 	{
 	case Up:
@@ -36,5 +39,10 @@ void Player::move(Direction dir)
 		if (position.x < Map::get().width && Map::get().getCell(position.y, position.x + 1) == MapCell::Empty)
 			position.x++;
 	}
+}
+//---------------------------------------------------------------------------------------
+void Player::attack(Character & target)
+{
+
 }
 //---------------------------------------------------------------------------------------

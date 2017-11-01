@@ -50,12 +50,12 @@ void Game::Draw()
 	{
 		for (int j = 0; j < Map::get().width; j++)
 		{
-			if (player->getPos().x == j && player->getPos().y == i)
-				cout << "@";
+			//if (player->getPos().x == j && player->getPos().y == i)
+			//	cout << "@";
 			//else
 			//if (enemies.)
 			//	cout << "S";
-			else
+//			else
 			if (Map::get().getCell(i, j) == MapCell::Empty)
 				cout << " ";
 			else
@@ -67,11 +67,11 @@ void Game::Draw()
 //---------------------------------------------------------------------------------------
 Player * Game::getPlayer() { return player; }
 //---------------------------------------------------------------------------------------
-void Game::scanMap()
-{
-	for (int i = 0; i < 4; i++)
-	{
-		//enemies.
-	}
-}
+//void Game::scanMap()
+//{
+//	for (int i = 0; i < 4; i++)
+//	{
+//		//enemies.
+//	}
+//}
 //---------------------------------------------------------------------------------------

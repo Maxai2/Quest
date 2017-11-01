@@ -18,7 +18,6 @@ public:
 	void setState(State st);
 };
 //---------------------------------------------------------------------------------------
-
-	//virtual void attack(Character &target) override;
-	//virtual void shoot(Character &target) override;
-	//virtual void move(Direction dir) override {};
+//virtual void attack(Character &target) override;
+//virtual void shoot(Character &target) override;
+//virtual void move(Direction dir) override {};

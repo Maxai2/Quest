@@ -4,7 +4,6 @@
 #include "Skeleton.h"
 #include "Player.h"
 
-using namespace std;
 //---------------------------------------------------------------------------------------
 class Game : public Skeleton
 {
@@ -20,7 +19,5 @@ public:
 	void Draw();
 
 	Player* getPlayer();
-
-	virtual void scanMap();
 };
 //---------------------------------------------------------------------------------------

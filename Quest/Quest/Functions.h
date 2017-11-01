@@ -14,13 +14,15 @@ enum Direction
 	 Left = 'a',
 	 Right = 'd'
 };
-
 enum State { Idle, Attack, Defend, Shoot, Dead };
 enum MapCell { Empty, Wall };
+enum MapCoord { height = 30, width = 90 };
+enum AttackDefence { AttackKey = 32, DefendKey = 'p'};
+
 struct Position { int x, y; };
 struct Damage { int min, max; };
 
-enum MapCoord { height = 30, width = 90 };
+#define SetCoord(col, raw) SetConsoleCursorPosition(handle, {short(col), short(raw)})
 
 //---------------------------------------------------------------------------------------
 inline int MRand(int min, int max)

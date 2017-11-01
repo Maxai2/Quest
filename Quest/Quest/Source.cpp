@@ -1,22 +1,24 @@
 #include <SFML/Graphics.hpp>
 #include <conio.h>
 
-#include "enum.h"
 #include "Game.h"
-
-
 //---------------------------------------------------------------------------------------
 void main()
 {
 	int key = 0;
 
-	Game::get();
+	Game::get().Draw();
 	while (true)
 	{		
-		Game::get().Draw();
+		Game::get().getPlayer()->drawPlayer();
 		key = _getch();
 
-		Game::get().getPlayer()->move(Direction(key));
+		if (key == AttackDefence::AttackKey)
+		{
+//			Game::get().getPlayer()->attack();
+		}
+		else
+			Game::get().getPlayer()->move(Direction(key));
 	}
 }
 //---------------------------------------------------------------------------------------

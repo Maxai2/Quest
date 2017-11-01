@@ -25,6 +25,6 @@ public:
 	void drawPlayer();
 	
 	virtual void move(Direction dir);
-	virtual void attack(Character &target) {}
+	virtual void attack(Character &target);
 };
 //---------------------------------------------------------------------------------------
