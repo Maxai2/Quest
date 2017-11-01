@@ -6,19 +6,29 @@
 void main()
 {
 	int key = 0;
+	noCursor(false);
+	srand(time(NULL));
 
 	Game::get().Draw();
 	while (true)
 	{		
-		Game::get().getPlayer()->drawPlayer();
-		key = _getch();
+		Game::get().drawPlayer();
+		Game::get().drawSkelet();
 
-		if (key == AttackDefence::AttackKey)
+		if (_kbhit())
 		{
-//			Game::get().getPlayer()->attack();
-		}
-		else
+			key = _getch();
 			Game::get().getPlayer()->move(Direction(key));
+		}
+			
+//		if (key == AttackDefence::AttackKey)
+//		{
+////			Game::get().getPlayer()->attack();
+//		}
+//		else
+		Sleep(100);
+		
+		Game::get().skeletMove();
 	}
 }
 //---------------------------------------------------------------------------------------

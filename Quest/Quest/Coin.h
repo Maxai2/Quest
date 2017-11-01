@@ -5,6 +5,6 @@
 //---------------------------------------------------------------------------------------
 class Coin : public GameObject, public IInteractive
 {
-//virtual void interaction(Character & target) override;
+	virtual void interaction(Character & target) override;
 };
 //---------------------------------------------------------------------------------------

@@ -7,7 +7,6 @@ using namespace std;
 
 #include "Characters.h"
 #include "Map.h"
-#include "Game.h"
 //---------------------------------------------------------------------------------------
 class Player : public Character
 {
@@ -22,9 +21,8 @@ public:
 	Player();
 
 	Position getPos();
-	void drawPlayer();
 	
-	virtual void move(Direction dir);
-	virtual void attack(Character &target);
+	virtual void move(Direction dir) override;
+	virtual void attack(Character &target) override;
 };
 //---------------------------------------------------------------------------------------

@@ -27,7 +27,6 @@ struct Damage { int min, max; };
 //---------------------------------------------------------------------------------------
 inline int MRand(int min, int max)
 {
-	srand(time(NULL));
 	int rn = rand() % (max - min + 1) + min;
 	return rn;
 }

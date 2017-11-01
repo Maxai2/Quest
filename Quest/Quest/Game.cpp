@@ -1,9 +1,7 @@
 #include "Game.h"
 //---------------------------------------------------------------------------------------
-Game::Game() : Skeleton(damage, position, hp, cooldown)
+Game::Game()
 {
-	//Enemy* enemInd;
-	noCursor(false);
 	Map::get();
 	player = new Player;
 	for (int i = 0; i < 7; i++)
@@ -16,23 +14,21 @@ Game::Game() : Skeleton(damage, position, hp, cooldown)
 		int hp = 100;
 		int cooldown = 2;
 		
-		Skeleton skel(dam, pos, hp, cooldown);
-		enemies.push_back(&skel);
+		skel = new Skeleton(dam, pos, hp, cooldown);
+		enemies.push_back(skel);
 	}
 }
 //---------------------------------------------------------------------------------------
 Position Game::placeChecker()
 {
 	Position pos;
-	while (true)//POS:
+	while (true)
 	{
-		pos.x = MRand(1, 90);
-		pos.y = MRand(1, 30);
+		pos.x = MRand(1, 88);
+		pos.y = MRand(1, 29);
 
 		if (Map::get().getCell(pos.y, pos.x) != MapCell::Wall)
 			return pos;
-		//else
-		//	goto POS;
 	}
 }
 //---------------------------------------------------------------------------------------
@@ -50,12 +46,6 @@ void Game::Draw()
 	{
 		for (int j = 0; j < Map::get().width; j++)
 		{
-			//if (player->getPos().x == j && player->getPos().y == i)
-			//	cout << "@";
-			//else
-			//if (enemies.)
-			//	cout << "S";
-//			else
 			if (Map::get().getCell(i, j) == MapCell::Empty)
 				cout << " ";
 			else
@@ -65,5 +55,33 @@ void Game::Draw()
 	}
 }
 //---------------------------------------------------------------------------------------
-Player * Game::getPlayer() { return player; }
+Player * Game::getPlayer() { return this->player; }
+//---------------------------------------------------------------------------------------
+Skeleton * Game::getSkeleton() { return this->skel; }
+//---------------------------------------------------------------------------------------
+void Game::drawPlayer()
+{
+	SetCoord(player->getPos().x, player->getPos().y);
+	cout << '@';
+}
+//---------------------------------------------------------------------------------------
+void Game::drawSkelet()
+{
+	for (int i = 0; i < enemies.size(); i++)
+	{
+		SetCoord((short)enemies[i]->getPos().x, (short)enemies[i]->getPos().y);
+		cout << 'S';
+	}
+}
+//---------------------------------------------------------------------------------------
+void Game::skeletMove()
+{
+	int dir = 0;
+
+	for (int i = 0; i < enemies.size(); i++)
+	{
+		dir = MRand(0, 3);
+		enemies[i]->move(Direction(dir));
+	}
+}
 //---------------------------------------------------------------------------------------

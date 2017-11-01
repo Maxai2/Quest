@@ -8,5 +8,6 @@ Enemy::Enemy(Damage damage, Position position, int hp, int cooldown) : Character
 	this->damage.min = damage.min;
 	this->hp = hp;
 	this->cooldown = cooldown;
+	//this->count++;
 }
 //---------------------------------------------------------------------------------------

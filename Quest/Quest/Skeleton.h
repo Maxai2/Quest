@@ -4,6 +4,7 @@
 
 #include "Enemy.h"
 #include "Functions.h"
+#include "Map.h"
 
 using namespace std;
 
@@ -12,8 +13,8 @@ class Skeleton : public Enemy
 {
 public:
 	Skeleton(Damage damage, Position position, int hp, int cooldown);
-	virtual void scanMap(Direction dir);
-	virtual void attack(Character &target) {}
-	virtual void move(Direction dir);
+	virtual void scanMap(Direction dir) override;
+	virtual void attack(Character &target) override;
+	virtual void move(Direction dir) override;
 };
 //---------------------------------------------------------------------------------------

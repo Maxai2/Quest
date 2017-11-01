@@ -2,24 +2,20 @@
 //---------------------------------------------------------------------------------------
 Player::Player() : Character()
 {
-	position.x = 28;
-	position.y = 15;
+	position.x = 2;
+	position.y = 27;
 	name = "Maxai";
+	damage.max = 20;
+	damage.min = 1;
 	exp = 0;
 	level = 0;
 }
 //---------------------------------------------------------------------------------------
 Position Player::getPos() { return position; }
 //---------------------------------------------------------------------------------------
-void Player::drawPlayer()
-{
-	SetCoord(Game::get().getPlayer()->position.x, Game::get().getPlayer()->position.y);
-	cout << '@';
-}
-//---------------------------------------------------------------------------------------
 void Player::move(Direction dir)
 {
-	SetCoord(Game::get().getPlayer()->position.x, Game::get().getPlayer()->position.y);
+	SetCoord(position.x, position.y);
 	cout << ' ';
 	switch (dir)
 	{
@@ -43,6 +39,11 @@ void Player::move(Direction dir)
 //---------------------------------------------------------------------------------------
 void Player::attack(Character & target)
 {
+	//
+	//if (true)
+	//{
 
+	//}
+	//target.setHp(target.getHp() - )
 }
 //---------------------------------------------------------------------------------------

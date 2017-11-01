@@ -4,10 +4,12 @@
 #include "Skeleton.h"
 #include "Player.h"
 
+
 //---------------------------------------------------------------------------------------
-class Game : public Skeleton
+class Game
 {
 	Player* player;
+	Skeleton* skel;
 	vector<GameObject*> staticObjects;
 	vector<Enemy*> enemies;
 
@@ -17,7 +19,11 @@ public:
 	static Game& get();
 
 	void Draw();
-
+	void drawPlayer();
+	void drawSkelet();
+	void skeletMove();
+	
 	Player* getPlayer();
+	Skeleton* getSkeleton();
 };
 //---------------------------------------------------------------------------------------
