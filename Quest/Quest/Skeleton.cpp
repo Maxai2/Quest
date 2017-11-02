@@ -13,9 +13,7 @@ void Skeleton::scanMap(Direction dir)
 			case Up:
 				if (Map::get().getCell(position.y - 1, position.x) == MapCell::Empty)
 					if (Map::get().getCell(position.y - 1, position.x) == MapCell::Empty)
-					{
 
-					}
 					position.y--;
 				break;
 			case Down:
