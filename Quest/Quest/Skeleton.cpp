@@ -6,15 +6,19 @@ void Skeleton::scanMap(Direction dir)
 {
 	for (int i = 0; i < 3; i++)
 	{
-		for (int j = 0; j < 5; j++)
+		for (int j = -2; j < 3; j++)
 		{
 			switch (dir)
 			{
 			case Up:
-				if (Map::get().getCell(position.y - 1, position.x) == MapCell::Empty)
-					if (Map::get().getCell(position.y - 1, position.x) == MapCell::Empty)
-
-					position.y--;
+				if (i == 0 && j == -2)
+				{
+					if (Map::get().getCell(position.y - i - 1, position.x - j + 2) == MapCell::Empty)
+					{
+						
+					}
+				}
+					
 				break;
 			case Down:
 				break;
