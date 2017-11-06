@@ -13,7 +13,6 @@ class Skeleton : public Enemy
 {
 public:
 	Skeleton(Damage damage, Position position, int hp, int cooldown);
-	virtual void scanMap(Direction dir) override;
 	virtual void attack(Character &target) override;
 	virtual void move(Direction dir) override;
 };

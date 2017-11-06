@@ -22,7 +22,9 @@ public:
 	void drawPlayer();
 	void drawSkelet();
 	void skeletMove();
-	
+
+	virtual void scanMap(Direction dir) override;
+
 	Player* getPlayer();
 	Skeleton* getSkeleton();
 };

@@ -2,35 +2,6 @@
 //---------------------------------------------------------------------------------------
 Skeleton::Skeleton(Damage damage, Position position, int hp, int cooldown) : Enemy(damage, position, hp, cooldown){}
 //---------------------------------------------------------------------------------------
-void Skeleton::scanMap(Direction dir)
-{
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = -2; j < 3; j++)
-		{
-			switch (dir)
-			{
-			case Up:
-				if (i == 0 && j == -2)
-				{
-					if (Map::get().getCell(position.y - i - 1, position.x - j + 2) == MapCell::Empty)
-					{
-						
-					}
-				}
-					
-				break;
-			case Down:
-				break;
-			case Left:
-				break;
-			case Right:
-				break;
-			}
-		}
-	}
-}
-//---------------------------------------------------------------------------------------
 void Skeleton::attack(Character & target)
 {
 	
