@@ -1,9 +1,8 @@
 #pragma once
 
 #include "Functions.h"
-#include "Skeleton.h"
 #include "Player.h"
-
+#include "Skeleton.h"
 
 //---------------------------------------------------------------------------------------
 class Game
@@ -22,8 +21,6 @@ public:
 	void drawPlayer();
 	void drawSkelet();
 	void skeletMove();
-
-	virtual void scanMap(Direction dir) override;
 
 	Player* getPlayer();
 	Skeleton* getSkeleton();

@@ -55,9 +55,9 @@ void Game::Draw()
 	}
 }
 //---------------------------------------------------------------------------------------
-Player * Game::getPlayer() { return this->player; }
+Player* Game::getPlayer() { return this->player; }
 //---------------------------------------------------------------------------------------
-Skeleton * Game::getSkeleton() { return this->skel; }
+Skeleton* Game::getSkeleton() { return this->skel; }
 //---------------------------------------------------------------------------------------
 void Game::drawPlayer()
 {
@@ -82,84 +82,6 @@ void Game::skeletMove()
 	{
 		dir = MRand(0, 3);
 		enemies[i]->move(Direction(dir));
-	}
-}
-//---------------------------------------------------------------------------------------
-void Game::scanMap(Direction dir)
-{
-	bool wallCheck = false;
-	int wallCount = 0;
-
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = -2; j < 3; j++)
-		{
-			switch (dir)
-			{
-			case Up:
-				if (i == 0 && j == 0)
-				{
-					if (Map::get().getCell(Game::getSkeleton()->getPos().y - i - 1, Game::getSkeleton()->getPos().x + j) == MapCell::Wall)
-					{
-						wallCheck = true;
-						break;
-					}
-					else
-						Game::getSkeleton()->attack(Game::getPlayer());
-				}
-				else
-					if (i == 1 && (j == -1 || j == 0 || j == 1))
-					{
-						if (Map::get().getCell(Game::getSkeleton()->getPos().y - i - 1, Game::getSkeleton()->getPos().x + j) == MapCell::Wall)
-						{
-							if (wallCount != 3)
-								wallCount++;
-							else
-							{
-								wallCheck = true;
-								break;
-							}
-						}
-						else
-						{
-							if (Map::get().getCell(Game::getSkeleton()->getPos().y - i - 1, Game::getSkeleton()->getPos().x + j) == Game::getPlayer()->getPos() && j == 0)
-								Game::getSkeleton()->move(dir);
-							else
-
-						}
-
-					}
-					else
-						if (i == 2 && (j == -2 || j == -1 || j == 0 || j == 1 || j == 2))
-						{
-							if (Map::get().getCell(Game::getSkeleton()->getPos().y - i - 1, Game::getSkeleton()->getPos().x + j) == MapCell::Wall)
-							{
-								if (wallCount != 5)
-									wallCount++;
-								else
-								{
-									wallCheck = true;
-									break;
-								}
-							}
-
-						}
-				break;
-			case Down:
-				break;
-			case Left:
-				break;
-			case Right:
-				break;
-			}
-		}
-		if (wallCheck)
-			break;
-		else
-			wallCount = 0;
-		{
-
-		}
 	}
 }
 //---------------------------------------------------------------------------------------
