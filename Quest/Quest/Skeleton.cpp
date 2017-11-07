@@ -2,7 +2,7 @@
 //---------------------------------------------------------------------------------------
 bool Skeleton::playerCheker(Position source, Position dest)
 {
-	
+	return true;
 }
 //---------------------------------------------------------------------------------------
 Skeleton::Skeleton(Damage damage, Position position, int hp, int cooldown) : Enemy(damage, position, hp, cooldown){}
@@ -13,7 +13,7 @@ void Skeleton::scanMap(Direction dir, Character &target)
 //	int wallCount = 0;
 
 	Position PPos, SPos;
-	target = *Game::get().getPlayer();
+	//target = *Game::get().getPlayer();
 
 	PPos = target.getPos();
 	SPos = this->position;

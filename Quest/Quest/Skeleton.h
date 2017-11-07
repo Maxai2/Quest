@@ -4,7 +4,6 @@
 
 #include "Enemy.h"
 #include "Map.h"
-#include "Game.h"
 
 using namespace std;
 
