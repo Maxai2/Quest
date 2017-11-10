@@ -40,21 +40,77 @@ Game & Game::get()
 //---------------------------------------------------------------------------------------
 void Game::Draw()
 {
-//	SetConsoleCursorPosition(handle, { 0,0 });
+	RenderWindow window(VideoMode(700, 500), "Quest");
 
+	Image heroImage;
+	heroImage.loadFromFile("Textures/Jake_Shine.png");
+	heroImage.createMaskFromColor(Color(255, 255, 255));
 
+	Texture heroTexture;
+	heroTexture.loadFromImage(heroImage);
+	
+	//Texture heroTexture;
+	//heroTexture.loadFromFile("Textures/Dino.png");
+	
+	Sprite heroSprite;
+	heroSprite.setTexture(heroTexture);
+	heroSprite.setTextureRect(IntRect(213, 135, 34, 54.75));
+	//heroSprite.setPosition(50, 25);
 
-	for (int i = 0; i < Map::get().height; i++)
+	Clock clock;
+	
+	float time = clock.getElapsedTime().asMicroseconds();
+	clock.restart();
+	time = time/800;
+	
+	while (window.isOpen())
 	{
-		for (int j = 0; j < Map::get().width; j++)
+		Event event;
+		while (window.pollEvent(event))
 		{
-			if (Map::get().getCell(i, j) == MapCell::Empty)
-				cout << " ";
-			else
-				cout << "*";
+			if (event.type == Event::Closed)
+				window.close();
 		}
-		cout << endl;
+
+		if (Keyboard::isKeyPressed(Keyboard::S)) 
+		{ 
+			heroSprite.move(0, 0.1); 
+			heroSprite.setTextureRect(IntRect(212, 25, 34, 54.75)); 
+		} //координата 0, это верхняя часть изображения с героем, от нее и отталкиваемся ровными квадратиками по 96.
+		else if (Keyboard::isKeyPressed(Keyboard::A)) 
+		{ 
+			heroSprite.move(-0.1, 0); 
+			heroSprite.setTextureRect(IntRect(213, 81, 34, 54.75)); 
+		} //координата Y, на которой герой изображен идущим влево равна 96
+		else if (Keyboard::isKeyPressed(Keyboard::D)) 
+		{ 
+			heroSprite.move(0.1, 0); 
+			heroSprite.setTextureRect(IntRect(213, 135, 34, 54.75)); 
+		} //координата Y, на которой герой изображен идущем вправо равна 96+96=192
+		else if (Keyboard::isKeyPressed(Keyboard::W)) 
+		{ 
+			heroSprite.move(0, -0.1); 
+			heroSprite.setTextureRect(IntRect(213, 187, 34, 54.75)); 
+		} //координата Y на которой герой изображен идущим вверх равна 288
+
+		window.clear();
+		window.draw(heroSprite);
+		window.display();
+
+		cout << time << "\n";
 	}
+
+	//for (int i = 0; i < Map::get().height; i++)
+	//{
+	//	for (int j = 0; j < Map::get().width; j++)
+	//	{
+	//		if (Map::get().getCell(i, j) == MapCell::Empty)
+	//			cout << " ";
+	//		else
+	//			cout << "*";
+	//	}
+	//	cout << endl;
+	//}
 }
 //---------------------------------------------------------------------------------------
 Player* Game::getPlayer() { return this->player; }
