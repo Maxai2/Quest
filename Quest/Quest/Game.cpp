@@ -40,7 +40,9 @@ Game & Game::get()
 //---------------------------------------------------------------------------------------
 void Game::Draw()
 {
-	SetConsoleCursorPosition(handle, { 0,0 });
+//	SetConsoleCursorPosition(handle, { 0,0 });
+
+
 
 	for (int i = 0; i < Map::get().height; i++)
 	{
