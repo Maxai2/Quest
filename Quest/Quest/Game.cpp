@@ -58,13 +58,13 @@ void Game::Draw()
 	//heroSprite.setPosition(50, 25);
 
 	Clock clock;
-	
-	float time = clock.getElapsedTime().asMicroseconds();
-	clock.restart();
-	time = time/800;
-	
+	//float teleportTime = 0;
+
 	while (window.isOpen())
 	{
+		float time = clock.getElapsedTime().asMicroseconds();
+		clock.restart();
+		time = time/800;
 		Event event;
 		while (window.pollEvent(event))
 		{
@@ -72,26 +72,34 @@ void Game::Draw()
 				window.close();
 		}
 
+		//teleportTime += time;
+
+		//if (teleportTime > 3000)
+		//{
+		//	heroSprite.setPosition(0, 120);
+		//	teleportTime = 0;
+		//}
+
 		if (Keyboard::isKeyPressed(Keyboard::S)) 
 		{ 
-			heroSprite.move(0, 0.1); 
+			heroSprite.move(0, 0.1 * time); 
 			heroSprite.setTextureRect(IntRect(212, 25, 34, 54.75)); 
-		} //координата 0, это верхняя часть изображения с героем, от нее и отталкиваемся ровными квадратиками по 96.
+		} 
 		else if (Keyboard::isKeyPressed(Keyboard::A)) 
 		{ 
-			heroSprite.move(-0.1, 0); 
+			heroSprite.move(-0.1 * time, 0);
 			heroSprite.setTextureRect(IntRect(213, 81, 34, 54.75)); 
-		} //координата Y, на которой герой изображен идущим влево равна 96
+		} 
 		else if (Keyboard::isKeyPressed(Keyboard::D)) 
 		{ 
-			heroSprite.move(0.1, 0); 
+			heroSprite.move(0.1 * time, 0);
 			heroSprite.setTextureRect(IntRect(213, 135, 34, 54.75)); 
-		} //координата Y, на которой герой изображен идущем вправо равна 96+96=192
+		} 
 		else if (Keyboard::isKeyPressed(Keyboard::W)) 
 		{ 
-			heroSprite.move(0, -0.1); 
+			heroSprite.move(0, -0.1 * time);
 			heroSprite.setTextureRect(IntRect(213, 187, 34, 54.75)); 
-		} //координата Y на которой герой изображен идущим вверх равна 288
+		} 
 
 		window.clear();
 		window.draw(heroSprite);
