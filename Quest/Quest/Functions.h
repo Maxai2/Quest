@@ -14,7 +14,7 @@ enum Direction
 
 //char MapCell { Empty, Wall };
 enum State { Idle, Attack, Defend, Shoot, Dead };
-enum MapSize { height = 30, width = 90 };
+enum MapSize { height = 20, width = 40 };
 enum AttackDefence { AttackKey = 32, DefendKey = 'p'};
 
 struct Position { short x, y; };
@@ -54,7 +54,7 @@ inline void noCursor(bool visible)
 	CONSOLE_CURSOR_INFO cursorInfo;
 
 	GetConsoleCursorInfo(handle, &cursorInfo);
-	cursorInfo.bVisible = visible; // set the cursor visibility
+	cursorInfo.bVisible = visible;
 	SetConsoleCursorInfo(handle, &cursorInfo);
 }
 //---------------------------------------------------------------------------------------

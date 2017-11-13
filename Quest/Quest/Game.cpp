@@ -71,9 +71,9 @@ void Game::Draw()
 		{
 			char c = Map::get().GetCell(i, j);
 
-			if (c == ' ')  
+			if (c == '0')  
 				MySFML::get().getSpriteMap().setTextureRect(IntRect(0, 415, 30, 34));
-			else
+			else 
 				MySFML::get().getSpriteMap().setTextureRect(IntRect(0, 512, 30, 34));
 
 			//if (c == 0)
@@ -119,10 +119,10 @@ void Game::findEnemy()
         {
             for (int x = 0; x < 3; x++)
             {
-                //if (Ppos.x - 1)
-                //{
+                if ((Ppos.x - 1 - j) && (Ppos.y - 1 - i))
+                {
 
-                //}
+                }
             }
         }
     }

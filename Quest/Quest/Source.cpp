@@ -55,7 +55,6 @@ void main()
 		//}
 		//else
 
-
 		MySFML::get().getWindow().clear();
         Game::get().Draw();
 		MySFML::get().getWindow().draw(MySFML::get().getSpriteHero());

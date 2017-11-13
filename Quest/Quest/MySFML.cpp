@@ -5,15 +5,19 @@
 //-------------------------------------------------------------
 MySFML::MySFML()
 {
-    window.create(VideoMode(1280, 800), "Quest", Style::Fullscreen);
+    window.create(VideoMode(1280, 800), "Quest"/*, Style::Fullscreen*/);
 
-    heroImage.loadFromFile("Textures/Jake_Shine.png");   
-    DinoImage.loadFromFile("Textures/Dinosour.png");
-    mapImage.loadFromFile("Textures/DungeonCrawl.png");
+    //heroImage.loadFromFile("Textures/Jake_Shine.png");   
+    //DinoImage.loadFromFile("Textures/Dinosour.png");
+    //mapImage.loadFromFile("Textures/DungeonCrawl.png");
 
-    heroTexture.loadFromImage(heroImage);
-    DinoTexture.loadFromImage(DinoImage);
-    mapTexture.loadFromImage(mapImage);
+	//heroTexture.loadFromImage(heroImage);
+	//DinoTexture.loadFromImage(DinoImage);
+	//mapTexture.loadFromImage(mapImage);
+	
+	heroTexture.loadFromFile("Textures/Jake_Shine.png");
+	DinoTexture.loadFromFile("Textures/Dinosour.png");
+	mapTexture.loadFromFile("Textures/DungeonCrawl.png");
 
     heroSprite.setTextureRect(IntRect(0, 0, 37, 55));
     DinoSprite.setTextureRect(IntRect(0, 0, 55, 59));
