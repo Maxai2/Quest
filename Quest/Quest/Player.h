@@ -1,12 +1,10 @@
 #pragma once
 
 #include <string>
-#include <conio.h>
 
 using namespace std;
 
 #include "Characters.h"
-#include "Map.h"
 //---------------------------------------------------------------------------------------
 class Player : public Character
 {
@@ -20,9 +18,6 @@ protected:
 public:
 	Player();
 
-	Position getPos();
-	
-	virtual void move(Direction dir) override;
 	virtual void attack(Character &target) override;
 };
 //---------------------------------------------------------------------------------------

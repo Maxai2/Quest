@@ -7,9 +7,9 @@ class GameObject
 protected:
 	Position position;
 public:
-	GameObject();
+	GameObject() {};
 
-	Position getPos();
-	void setPos(Position pos);
+	Position getPos() { return position; }
+	void setPos(Position pos) { position = pos; }
 };
 //---------------------------------------------------------------------------------------

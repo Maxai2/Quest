@@ -1,36 +1,83 @@
 //#include <SFML/Graphics.hpp>
+//#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 #include <conio.h>
 
 #include "Game.h"
+
 //---------------------------------------------------------------------------------------
 void main()
 {
-	//int key = 0;
-	//noCursor(false);
-	//srand(time(NULL));
+	int key = 0;
+	noCursor(false);
+	srand(time(NULL));
+	Clock clock;
 
-	Game::get().Draw();
-//	while (true)
-//	{		
-//		Game::get().drawPlayer();
-//		Game::get().drawSkelet();
-//
-//		if (_kbhit())
-//		{
-//			key = _getch();
-//			Game::get().getPlayer()->move(Direction(key));
-//		}
-//			
-////		if (key == AttackDefence::AttackKey)
-////		{
-////			key = _getch();
-////			Game::get().getPlayer()->move(Direction(key));
-////		}
-////		else
-//		Sleep(100);
-//		
-//		Game::get().skeletMove();
-//	}
+	MySFML::get();
+
+	//Game::get().getPlayer()->Draw();
+	//Game::get().drawSkelet();
+	//while (true)
+	while (MySFML::get().getWindow().isOpen())
+	{		
+		float time = clock.getElapsedTime().asMicroseconds();
+		clock.restart();
+		time = time / 800;
+
+		Event event;
+		while (MySFML::get().getWindow().pollEvent(event))
+		{
+			if (event.type == Event::Closed)
+				MySFML::get().getWindow().close();
+
+            if (event.type == Event::KeyPressed)
+            {
+            	if (event.key.code == Keyboard::W)
+                    Game::get().getPlayer()->move(Up);
+            	else if (event.key.code == Keyboard::S)
+                    Game::get().getPlayer()->move(Down);
+            	else if (event.key.code == Keyboard::A)
+                    Game::get().getPlayer()->move(Left);
+            	else if (event.key.code == Keyboard::D)
+                    Game::get().getPlayer()->move(Right);
+            }
+		}
+
+		//if (_kbhit())
+		//{
+		//	key = _getch();
+		//	Direction dir = GetDirection(key);
+		//	Game::get().getPlayer()->move(dir);
+		//}   
+			
+		//if (key == AttackDefence::AttackKey)
+		//{
+  //          Game::get().getPlayer()->attack();
+		//}
+		//else
+
+
+		MySFML::get().getWindow().clear();
+        Game::get().Draw();
+		MySFML::get().getWindow().draw(MySFML::get().getSpriteHero());
+		MySFML::get().getWindow().draw(MySFML::get().getSpriteDino());
+		MySFML::get().getWindow().display();
+		Sleep(100);
+		
+		//Game::get().skeletMove();
+
+		//Sleep(100);
+		//SetCoord({0, 32});
+		//cout << "   ";
+		//SetCoord({0, 32 });
+		//cout << Game::get().getPlayer()->getHp();
+
+		//if (Game::get().getPlayer()->getHp() == 0)
+		//	break;
+	}
+
+	//SetCoord({ 0, 34 });
+	//cout << "Game Over!" << endl;
+	//system("pause");
 }
 //---------------------------------------------------------------------------------------
 //int main()

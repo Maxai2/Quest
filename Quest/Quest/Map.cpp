@@ -1,29 +1,28 @@
 #include "Map.h"
 //---------------------------------------------------------------------------------------
-Map::Map(int width, int height) : width(width), height(height)
+Map::Map(int aWidth, int aHeight) : width(aWidth), height(aHeight)
 {
-	field.resize(height);
-	for (int i = 0; i < height; i++)
-	{
-		field[i].resize(width);
-	}
+	//field.resize(height);
 
-	ifstream map("Map/map.txt");
-	string buffer;
+	//for (int i = 0; i < height; i++)
+	//	field[i].resize(width);
 
-	for (int i = 0; i < height; i++)
-	{
-		getline(map, buffer);
-		for (int j = 0; j < width; j++)
-		{
-			if (buffer[j] == '0')
-				field[i][j] = MapCell::Empty;
-			else if (buffer[j] == '1')
-				field[i][j] = MapCell::Wall;
-		}
+	//ifstream map("Map\\map.txt");
 
-	}
-	map.close();
+	//for (int i = 0; i < height; i++)
+	//{
+	//	string buffer;
+	//	getline(map, buffer);
+	//	
+	//	for (int j = 0; j < width; j++)
+	//	{
+	//		if (buffer[j] == ' ')
+	//			field[i][j] = 0;
+	//		else 
+	//			field[i][j] = buffer[j];
+	//	}
+	//}
+	//map.close();
 }
 //---------------------------------------------------------------------------------------
 Map & Map::get()
@@ -32,11 +31,16 @@ Map & Map::get()
 	return INSTANCE;
 }
 //---------------------------------------------------------------------------------------
-MapCell Map::getCell(int y, int x)
+bool Map::isEmptyCell(int y, int x)
 {
 	if (x >= 0 && x < width && y >= 0 && y < height)
-		return field[y][x];
+		return field[y][x] == ' ';
 	else
-		return MapCell::Wall;
+		return false;
+}
+//---------------------------------------------------------------------------------------
+char Map::GetCell(int y, int x)
+{
+	return field[y][x];
 }
 //---------------------------------------------------------------------------------------
