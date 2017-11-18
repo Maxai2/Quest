@@ -14,7 +14,7 @@ enum Direction
 
 //char MapCell { Empty, Wall };
 enum State { Idle, Attack, Defend, Shoot, Dead };
-enum MapSize { height = 20, width = 40 };
+enum MapSize { height = 21, width = 40 };
 enum AttackDefence { AttackKey = 32, DefendKey = 'p'};
 
 struct Position { short x, y; };

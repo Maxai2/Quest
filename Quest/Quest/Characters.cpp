@@ -26,8 +26,8 @@ void Character::move(Direction dir)
 	case Up:
 		if (position.y > 0 && Map::get().isEmptyCell(position.y - 1, position.x))
 		{
-            MySFML::get().getSpriteHero().setTextureRect(IntRect(36, 166, 36, 53));
-            MySFML::get().getSpriteHero().move(0, -0.1);
+            getMySFML().getSpriteHero().setTextureRect(IntRect(36, 166, 36, 53));
+            getMySFML().getSpriteHero().move(0, -0.1);
 			break;
 		}
 		else
@@ -35,8 +35,8 @@ void Character::move(Direction dir)
 	case Down:
 		if (position.y < Map::get().height && Map::get().isEmptyCell(position.y + 1, position.x))
 		{
-            MySFML::get().getSpriteHero().setTextureRect(IntRect(36, 0, 36, 53));
-            MySFML::get().getSpriteHero().move(0, 0.1);
+            getMySFML().getSpriteHero().setTextureRect(IntRect(36, 0, 36, 53));
+            getMySFML().getSpriteHero().move(0, 0.1);
 			break;
 		}
 		else
@@ -44,8 +44,8 @@ void Character::move(Direction dir)
 	case Left:
 		if (position.x > 0 && Map::get().isEmptyCell(position.y, position.x - 1))
 		{
-            MySFML::get().getSpriteHero().setTextureRect(IntRect(36, 58, 36, 53));
-            MySFML::get().getSpriteHero().move(-0.1, 0);
+            getMySFML().getSpriteHero().setTextureRect(IntRect(36, 58, 36, 53));
+            getMySFML().getSpriteHero().move(-0.1, 0);
 			break;
 		}
 		else
@@ -53,8 +53,8 @@ void Character::move(Direction dir)
 	case Right:
 		if (position.x < Map::get().width && Map::get().isEmptyCell(position.y, position.x + 1))
 		{
-            MySFML::get().getSpriteHero().setTextureRect(IntRect(34, 113, 34, 53));
-            MySFML::get().getSpriteHero().move(0.1, 0);
+            getMySFML().getSpriteHero().setTextureRect(IntRect(34, 113, 34, 53));
+            getMySFML().getSpriteHero().move(0.1, 0);
 			break;
 		}
 		else

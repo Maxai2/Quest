@@ -3,31 +3,102 @@
 #include <conio.h>
 
 #include "Game.h"
+#include <fstream>
+
+
+string Path = "D:\\Ali\\Repos\\Quest\\Quest\\Quest\\";
 
 //---------------------------------------------------------------------------------------
-void main()
+bool loadTextureFromFile(Texture &T, string Path)
 {
-	int key = 0;
+    bool ret = T.loadFromFile(Path);
+
+    ifstream t(Path);
+    if (t.bad())
+        ret = false;
+    
+    int size = 7298;
+    char *s = new char[size];
+    t.read(s, size);
+    ret = T.loadFromMemory(s, size);
+    delete[] s;
+    return ret;
+}
+//---------------------------------------------------------------------------------------
+int main(int argc, char *argv[])
+{
+/*
+char P[256];
+    strcpy_s(P, argv[0]);
+    *strrchr(P, '\\') = '\0';
+
+    Path = P;
+    Path += "\\";
+*/
+
+    std::FILE* m_file = std::fopen((Path + "Textures\\Jake_Shine.png").c_str(), "rb");
+                       
+    ifstream map(Path + "Map\\map.txt");
+//    ifstream map("Textures\\Jake_Shine.png");
+    for (int i = 0; i < height; i++)
+    {
+    	string buffer;
+    	getline(map, buffer);
+    	
+//    	for (int j = 0; j < width; j++)
+    	{
+//    		if (buffer[j] == ' ')
+    			//field[i][j] = 0;
+//    		else 
+//    			field[i][j] = buffer[j];
+    	}
+    }
+    map.close();
+
+    Texture mapTexture;
+    Texture heroTexture;
+    Texture DinoTexture;
+
+    Sprite mapSprite;
+    Sprite heroSprite;
+    Sprite DinoSprite;
+
+    if (!loadTextureFromFile(heroTexture, Path + "j.png"))
+        return 1;
+        
+    if (!loadTextureFromFile(DinoTexture, Path + "d.png"))
+        return 1;
+
+    if (!loadTextureFromFile(mapTexture, Path + "c.png"))
+        return 1;
+
+    
+    
+    int key = 0;
 	noCursor(false);
 	srand(time(NULL));
 	Clock clock;
 
-	MySFML::get();
+    if (!getMySFML().LoadTextures())
+    {
+        return 1;
+    }
+
 
 	//Game::get().getPlayer()->Draw();
 	//Game::get().drawSkelet();
 	//while (true)
-	while (MySFML::get().getWindow().isOpen())
+	while (getMySFML().getWindow().isOpen())
 	{		
 		float time = clock.getElapsedTime().asMicroseconds();
 		clock.restart();
 		time = time / 800;
 
 		Event event;
-		while (MySFML::get().getWindow().pollEvent(event))
+		while (getMySFML().getWindow().pollEvent(event))
 		{
 			if (event.type == Event::Closed)
-				MySFML::get().getWindow().close();
+				getMySFML().getWindow().close();
 
             if (event.type == Event::KeyPressed)
             {
@@ -55,11 +126,13 @@ void main()
 		//}
 		//else
 
-		MySFML::get().getWindow().clear();
-        Game::get().Draw();
-		MySFML::get().getWindow().draw(MySFML::get().getSpriteHero());
-		MySFML::get().getWindow().draw(MySFML::get().getSpriteDino());
-		MySFML::get().getWindow().display();
+		getMySFML().getWindow().clear();
+
+//        Game::get().Draw();
+		getMySFML().getWindow().draw(getMySFML().getSpriteHero());
+		getMySFML().getWindow().draw(getMySFML().getSpriteDino());
+
+        getMySFML().getWindow().display();
 		Sleep(100);
 		
 		//Game::get().skeletMove();
@@ -72,11 +145,13 @@ void main()
 
 		//if (Game::get().getPlayer()->getHp() == 0)
 		//	break;
-	}
+    }
 
 	//SetCoord({ 0, 34 });
 	//cout << "Game Over!" << endl;
 	//system("pause");
+
+    return 0;
 }
 //---------------------------------------------------------------------------------------
 //int main()

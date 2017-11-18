@@ -1,33 +1,43 @@
 ﻿#include <string>
-
 #include "MySFML.h"
 
+extern string Path;
+//-------------------------------------------------------------
+static MySFML INSTANCE;
+MySFML &getMySFML()
+{
+    return INSTANCE;
+}
 //-------------------------------------------------------------
 MySFML::MySFML()
 {
-    window.create(VideoMode(1280, 800), "Quest"/*, Style::Fullscreen*/);
-
+//    window.create(VideoMode(1280, 800), "Quest"/*, Style::Fullscreen*/);
+}
+//-------------------------------------------------------------
+bool MySFML::LoadTextures()
+{
     //heroImage.loadFromFile("Textures/Jake_Shine.png");   
     //DinoImage.loadFromFile("Textures/Dinosour.png");
     //mapImage.loadFromFile("Textures/DungeonCrawl.png");
 
-	//heroTexture.loadFromImage(heroImage);
-	//DinoTexture.loadFromImage(DinoImage);
-	//mapTexture.loadFromImage(mapImage);
-	
-	heroTexture.loadFromFile("Textures/Jake_Shine.png");
-	DinoTexture.loadFromFile("Textures/Dinosour.png");
-	mapTexture.loadFromFile("Textures/DungeonCrawl.png");
+    //heroTexture.loadFromImage(heroImage);
+    //DinoTexture.loadFromImage(DinoImage);
+    //mapTexture.loadFromImage(mapImage);
+
+    if (!heroTexture.loadFromFile(Path + "Textures\\Jake_Shine.png"))
+        return false;
+
+    if (!DinoTexture.loadFromFile(Path + "Textures\\Dinosour.png"))
+        return false;
+
+    if (!mapTexture.loadFromFile(Path + "Textures\\DungeonCrawl.png"))
+            return false;
 
     heroSprite.setTextureRect(IntRect(0, 0, 37, 55));
     DinoSprite.setTextureRect(IntRect(0, 0, 55, 59));
     mapSprite.setTexture(mapTexture);
-}
-//-------------------------------------------------------------
-MySFML & MySFML::get()
-{
-    static MySFML INSTANCE;
-    return INSTANCE;
+
+    window.create(VideoMode(1280, 800), "Quest"/*, Style::Fullscreen*/);
 }
 //-------------------------------------------------------------
 //RenderWindow window(VideoMode(700, 500), "Quest");

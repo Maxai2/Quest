@@ -7,6 +7,13 @@ Skeleton::Skeleton(Damage damage, Position position, int hp, int cooldown) : Ene
 //---------------------------------------------------------------------------------------
 void Skeleton::scanMap(Direction dir, Character &target)
 {
+    static bool map[3][5] =
+    {
+        1, 1, 1, 1, 1,
+        0, 1, 1, 1, 0,
+        0, 0, 1, 0, 0
+    }
+
 	bool wallCheck = false, found = false, block = false;
 	int wallCount = 0;
 
@@ -19,10 +26,11 @@ void Skeleton::scanMap(Direction dir, Character &target)
 	{
 		for (int j = -2; j < 3; j++)
 		{
-			if ((j == 0 && i == 0) ||
-				((j == -1 || j == 0 || j == 1) && i == 1) ||
-				((j == -2 || j == -1 || j == 0 || j == 1 || j == 2) && i == 2))
-			{
+            //if ((j == 0 && i == 0) ||
+            //    ((j == -1 || j == 0 || j == 1) && i == 1) ||
+            //    ((j == -2 || j == -1 || j == 0 || j == 1 || j == 2) && i == 2))
+            if (map[i][j + 2])
+            {
 				switch (dir)
 				{
 				case Up:

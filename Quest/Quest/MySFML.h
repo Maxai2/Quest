@@ -22,13 +22,14 @@ class MySFML
     Sprite heroSprite;
     Sprite DinoSprite;
 
-    MySFML();
 public:
-    static MySFML& get();
-    
+    MySFML();
+    bool LoadTextures();
     RenderWindow& getWindow() { return window; }
     Sprite& getSpriteHero() { return heroSprite; }
     Sprite& getSpriteDino() { return DinoSprite; }
     Sprite& getSpriteMap() { return mapSprite; }
 };
+
+MySFML& getMySFML();
 //---------------------------------------------------------------------------------------

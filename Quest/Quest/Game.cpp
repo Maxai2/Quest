@@ -72,17 +72,17 @@ void Game::Draw()
 			char c = Map::get().GetCell(i, j);
 
 			if (c == '0')  
-				MySFML::get().getSpriteMap().setTextureRect(IntRect(0, 415, 30, 34));
+				getMySFML().getSpriteMap().setTextureRect(IntRect(0, 415, 30, 34));
 			else 
-				MySFML::get().getSpriteMap().setTextureRect(IntRect(0, 512, 30, 34));
+				getMySFML().getSpriteMap().setTextureRect(IntRect(0, 512, 30, 34));
 
 			//if (c == 0)
 			//	cout << " ";
 			//else
 			//	cout << "*";
 
-			MySFML::get().getSpriteMap().setPosition(j * 30, i * 34);
-			MySFML::get().getWindow().draw(MySFML::get().getSpriteMap());
+			getMySFML().getSpriteMap().setPosition(j * 30, i * 34);
+			getMySFML().getWindow().draw(getMySFML().getSpriteMap());
 		}
 		//cout << endl;
 	}
@@ -110,21 +110,21 @@ void Game::skeletMove()
 //---------------------------------------------------------------------------------------
 void Game::findEnemy()
 {
-    Position Ppos;
-    Ppos = getPlayer()->getPos();
+    //Position Ppos;
+    //Ppos = getPlayer()->getPos();
 
-    for (int k = 0; k < enemies.size(); k++)
-    {
-        for (int y = 0; y < 3; y++)
-        {
-            for (int x = 0; x < 3; x++)
-            {
-                if ((Ppos.x - 1 - j) && (Ppos.y - 1 - i))
-                {
+    //for (int k = 0; k < enemies.size(); k++)
+    //{
+    //    for (int y = 0; y < 3; y++)
+    //    {
+    //        for (int x = 0; x < 3; x++)
+    //        {
+    //            if ((Ppos.x - 1 - j) && (Ppos.y - 1 - i))
+    //            {
 
-                }
-            }
-        }
-    }
+    //            }
+    //        }
+    //    }
+    //}
 }
 //---------------------------------------------------------------------------------------
